@@ -69,7 +69,7 @@ export default () => (
     <Nav>
       <TitleLink href="/">
         <Square />
-        <TitleText>Aengus Finn</TitleText>
+        <TitleText>Aengus Finn McMillin</TitleText>
       </TitleLink>
       <NavItemContainer>
         {NavItems.map(({ name, location }) => (
