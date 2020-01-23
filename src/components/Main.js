@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 const Wrapper = styled('main')`
   margin: 90px auto 6rem;
   padding: 10px;
-  width: 80ch;
+  width: 100ch;
   flex: 1 0 auto;
 `;
 

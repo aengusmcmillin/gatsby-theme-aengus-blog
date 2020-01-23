@@ -57,6 +57,7 @@ export default () => {
           color: ${colors.gray100};
           padding: 20px;
           border-radius: 5px;
+          font-size: ${fonts.code};
         }
 
         a {
