@@ -16,6 +16,7 @@ exports.createPages = async ({ actions, graphql }) => {
               frontmatter {
                 title
                 slug
+                published
               }
             }
           }
@@ -25,11 +26,13 @@ exports.createPages = async ({ actions, graphql }) => {
 
     const posts = result.data.posts.nodes;
     posts.forEach(node => {
-        createPage({
-            path: node.childMdx.frontmatter.slug,
-            component: require.resolve(`./src/templates/post.js`),
-            context: { slug: node.childMdx.frontmatter.slug }
-        });
+        if (node.childMdx.frontmatter.published) {
+            createPage({
+                path: node.childMdx.frontmatter.slug,
+                component: require.resolve(`./src/templates/post.js`),
+                context: { slug: node.childMdx.frontmatter.slug }
+            });
+        }
     });
 };
 
