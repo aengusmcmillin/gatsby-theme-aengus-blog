@@ -1,20 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const DefaultLayout = styled(Layout)`
   margin: 5em;
 `;
 
-const Default = ({ children }) => {
+export default ({children}) => {
     return (
-      <React.Fragment>
-        <DefaultLayout>
-          {children}
-        </DefaultLayout>
-      </React.Fragment>
+      <DefaultLayout>
+        {children}
+      </DefaultLayout>
     );
 };
-
-export default Default;

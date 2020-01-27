@@ -19,18 +19,16 @@ const Blog = styled.article`
 
 export default function PostTemplate({data: { mdx }}) {
     return (
-      <React.Fragment>
         <BlogLayout>
           <Blog>
             <h1>{mdx.frontmatter.title}</h1>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </Blog>
         </BlogLayout>
-      </React.Fragment>
     );
 }
 
-export const pageQuery = graphql`
+const pageQuery = graphql`
   query PostsBySlug($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
         body

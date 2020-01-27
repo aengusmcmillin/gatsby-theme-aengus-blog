@@ -2,12 +2,22 @@ const path = require('path');
 
 module.exports = options => ({
   siteMetadata: {
-    title: "Blog Theme"
+    title: "Blog Theme",
+    description: "A theme I'm using for my stuff",
+    author: `Aengus Finn McMillin`,
+    titleTemplate: ``,
+    image: ``,
+    url: ``,
+    social: {
+      email: `aengusmcmillin@gmail.com`,
+      twitter: `@aengusmcmillin`
+    }
   },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-emotion",
     "gatsby-transformer-remark",
+    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
