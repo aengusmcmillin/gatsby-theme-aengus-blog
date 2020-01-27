@@ -7,7 +7,10 @@ exports.createPages = async ({ actions, graphql }) => {
     const result = await graphql(`
       query {
         posts: allFile(
-          filter: { relativePath: { glob: "posts/**/*.{md,mdx}", childMdx:{frontmatter:{published:{eq:true}}} }
+          filter: {
+            relativePath: { glob: "posts/**/*.{md,mdx}" }
+            childMdx: { frontmatter: { published: { eq: true } } }
+          }
           sort: { fields: relativePath, order: DESC }
         ) {
           nodes {
