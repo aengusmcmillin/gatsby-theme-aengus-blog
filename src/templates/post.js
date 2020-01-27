@@ -28,7 +28,7 @@ export default function PostTemplate({data: { mdx }}) {
     );
 }
 
-const pageQuery = graphql`
+export const pageQuery = graphql`
   query PostsBySlug($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
         body
