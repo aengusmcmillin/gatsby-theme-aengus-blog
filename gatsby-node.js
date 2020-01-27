@@ -7,7 +7,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const result = await graphql(`
       query {
         posts: allFile(
-          filter: { relativePath: { glob: "posts/**/*.{md,mdx}" } }
+          filter: { relativePath: { glob: "posts/**/*.{md,mdx}", childMdx:{frontmatter:{published:{eq:true}}} }
           sort: { fields: relativePath, order: DESC }
         ) {
           nodes {
@@ -26,7 +26,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     const posts = result.data.posts.nodes;
     posts.forEach(node => {
-        if (node.childMdx.frontmatter.published) {
+        if (node.childMdx.frontmatter.published == true) {
             createPage({
                 path: node.childMdx.frontmatter.slug,
                 component: require.resolve(`./src/templates/post.js`),
