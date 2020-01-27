@@ -13,9 +13,6 @@ const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
             title
             description
             image
-            author {
-              name
-            }
             social {
               twitter
             }
