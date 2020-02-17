@@ -16,6 +16,7 @@ module.exports = options => ({
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-emotion",
+    "gatsby-plugin-sharp",
     "gatsby-transformer-remark",
     "gatsby-plugin-offline",
     {
