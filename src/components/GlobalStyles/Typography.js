@@ -68,6 +68,10 @@ export default () => {
             color: ${colors.orange500};
           }
         }
+
+        li + li {
+          margin-top: .5rem;
+        }
       `}
     />
   );

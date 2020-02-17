@@ -5,8 +5,9 @@ import styled from '@emotion/styled';
 const Wrapper = styled('main')`
   margin: 90px auto 6rem;
   padding: 10px;
-  width: 100ch;
+  max-width: 100ch;
   flex: 1 0 auto;
+  width: 100%;
 `;
 
 const Main = ({ children, className }) => (
