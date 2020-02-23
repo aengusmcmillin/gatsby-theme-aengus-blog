@@ -64,20 +64,34 @@ const Square = styled("div")`
 `;
 
 
-export default () => (
-  <Header>
-    <Nav>
-      <TitleLink href="/">
-        <Square />
-        <TitleText>Aengus Finn McMillin</TitleText>
-      </TitleLink>
-      <NavItemContainer>
-        {NavItems.map(({ name, location }) => (
-          <NavLink key={name} to={location}>
-            {name}
-          </NavLink>
-        ))}
-      </NavItemContainer>
-    </Nav>
-  </Header>
-);
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+    <Header>
+      <Nav>
+        <TitleLink href="/">
+          <Square />
+          <TitleText>{data.site.siteMetadata.title}</TitleText>
+        </TitleLink>
+        <NavItemContainer>
+          {NavItems.map(({ name, location }) => (
+            <NavLink key={name} to={location}>
+              {name}
+            </NavLink>
+          ))}
+        </NavItemContainer>
+      </Nav>
+    </Header>
+  )}
+  />
+)
+
